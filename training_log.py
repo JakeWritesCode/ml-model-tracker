@@ -28,6 +28,11 @@ class ModelTrainingLog:
             raise ChangesMadeError("There have been changes made to this repo since "
                        "the last commit. Please commit before training again.")
 
+    def create_log_file(self, recreate=False):
+        """Creates a blank log file."""
+        if not os.path.isfile(self.log_file_location) or recreate:
+            open(self.log_file_location, 'w')
+
 
 class ChangesMadeError(Exception):
     pass
