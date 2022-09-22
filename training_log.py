@@ -19,6 +19,7 @@ class ModelTrainingLog:
         self.repo.index.add("*.py")
         message = input("Please give us a nice git commit message.")
         self.repo.index.commit(message)
+        print("Committed latest cvhange")
 
 
     def check_for_non_log_changes(self):
