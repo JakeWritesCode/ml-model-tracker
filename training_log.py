@@ -77,7 +77,8 @@ class ModelTrainingLog:
         print("Wrote the training results to the log file.")
 
     def _write_log_to_file(self, log_line):
-        existing_file = json.load(self.log_file_location)
+        with open(self.log_file_location, "r") as f:
+            existing_file = json.load(f)
         existing_file[self.current_hash] = log_line
         with open(self.log_file_location, "w") as f:
             json.dump(existing_file, f, ensure_ascii=False, indent=4)
