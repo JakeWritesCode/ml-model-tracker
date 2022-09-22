@@ -41,7 +41,7 @@ class ModelTrainingLog:
         """Creates a blank log file."""
         if not os.path.isfile(self.log_file_location) or recreate:
             with open(self.log_file_location, 'w') as f:
-                json.dump({}, f)
+                json.dump({}, f, ensure_ascii=False, indent=4)
 
     def _get_current_hash(self):
         self._current_hash = self.repo.head.commit.hexsha
